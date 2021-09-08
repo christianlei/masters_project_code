@@ -1,0 +1,4 @@
+number_of_nodes:  8
+
+adj_test.shape: (8, 8)
+Total Time: 0.00018858909606933594

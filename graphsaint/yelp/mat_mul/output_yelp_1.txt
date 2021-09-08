@@ -1,0 +1,5 @@
+dataset:  yelp
+number of nodes:  1
+  (0, 0)	4
+adj_test.shape: (1, 1)
+Total Time:  0.0001614093780517578

@@ -1,0 +1,8 @@
+dataset:  amazon
+number of nodes:  4
+  (0, 0)	4.0
+  (1, 1)	4.0
+  (2, 2)	4.0
+  (3, 3)	4.0
+adj_test.shape: (4, 4)
+Total Time:  0.00016832351684570312

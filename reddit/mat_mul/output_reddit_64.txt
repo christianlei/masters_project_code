@@ -1,0 +1,5 @@
+number_of_nodes:  64
+  (33, 42)	1.0
+  (42, 33)	1.0
+adj_test.shape: (64, 64)
+Total Time:  0.0002219676971435547
