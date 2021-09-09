@@ -36,7 +36,8 @@ adj = scipy.sparse.load_npz('../../../data/' + dataset + '/' + dataset + '_adj.n
 
 adj = adj+adj.T
 
-adj_test = adj[test_index, :][:, test_index]
+# adj_test = adj[test_index, :][:, test_index]
+adj_test = adj
 adj_test = adj_test[:, :number_of_nodes][:number_of_nodes,:]
 
 print(adj_test)

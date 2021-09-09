@@ -92,17 +92,17 @@ model.compile(optimizer=optimizer,
 model.summary()
 model.load_weights(checkpoint_path)
 
-test_features = X[test_mask]
+# test_features = X[test_mask]
 
 test_features = X[test_mask][0:number_of_nodes]
-print(test_features.shape)
-adj_test = A[test_mask, :][:, test_mask]
+test_features = X[0:number_of_nodes]
+
+print("test_features.shape:", test_features.shape)
+# adj_test = A[test_mask, :][:, test_mask]
+adj_test = A
 print("ADJ MATRIX BEFORE", adj_test.shape)
 adj_test = adj_test[:, :number_of_nodes][:number_of_nodes,:]
 print("ADJ MATRIX AFTER", adj_test.shape)
-
-
-
 
 M = test_features.shape[0]
 
