@@ -22,7 +22,7 @@ Total params: 39,296
 Trainable params: 39,296
 Non-trainable params: 0
 __________________________________________________________________________________________________
-(1024, 200)
-ADJ MATRIX BEFORE (235494, 235494)
+test_features.shape: (1024, 200)
+ADJ MATRIX BEFORE (1569960, 1569960)
 ADJ MATRIX AFTER (1024, 1024)
-overall time:  0.05772733688354492
+overall time:  0.06806492805480957

@@ -21,8 +21,8 @@ Trainable params: 164,608
 Non-trainable params: 0
 __________________________________________________________________________________________________
 (8192, 602)
-ADJ MATRIX BEFORE (55334, 55334)
+ADJ MATRIX BEFORE (232965, 232965)
 ADJ MATRIX AFTER (8192, 8192)
 TEST INDEX SHAPE AFTER SPLICE: (8192, 602)
 M:  8192
-overall time:  0.10791730880737305
+overall time:  0.11447691917419434

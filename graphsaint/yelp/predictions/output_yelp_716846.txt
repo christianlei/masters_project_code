@@ -1,3 +1,5 @@
+(716847, 300)
+(716847, 716847)
 Model: "functional_1"
 __________________________________________________________________________________________________
 Layer (type)                    Output Shape         Param #     Connected to                     
@@ -20,7 +22,7 @@ Total params: 6,400
 Trainable params: 6,400
 Non-trainable params: 0
 __________________________________________________________________________________________________
-(71685, 300)
-ADJ MATRIX BEFORE (71685, 71685)
-ADJ MATRIX AFTER (71685, 71685)
-overall time:  0.391923189163208
+test_features.shape: (716846, 300)
+ADJ MATRIX BEFORE (716847, 716847)
+ADJ MATRIX AFTER (716846, 716846)
+overall time:  5.370040655136108

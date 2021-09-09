@@ -21,7 +21,8 @@ adj, features, y_train, y_val, y_test, train_index, val_index, test_index = load
 
 adj = adj+adj.T
 
-adj_test = adj[test_index, :][:, test_index]
+# adj_test = adj[test_index, :][:, test_index]
+adj_test = adj
 adj_test = adj_test[:, :number_of_nodes][:number_of_nodes,:]
 
 print(adj_test)
@@ -37,7 +38,6 @@ indices = np.mat([coo.row, coo.col]).transpose()
 adj_sp = sparse.SparseTensor(indices, coo.data, coo.shape)
 # adj_sp = sparse.transpose(adj_sp)
 rand_array = np.random.rand(number_of_nodes, 256)
-
 
 # pdb.set_trace()
 

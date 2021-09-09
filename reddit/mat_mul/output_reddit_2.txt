@@ -1,4 +1,4 @@
 number_of_nodes:  2
 
 adj_test.shape: (2, 2)
-Total Time:  0.00017499923706054688
+Total Time:  0.00017547607421875

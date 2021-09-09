@@ -33,4 +33,4 @@ number of nodes:  32
   (30, 30)	4.0
   (31, 31)	4.0
 adj_test.shape: (32, 32)
-Total Time:  0.00016641616821289062
+Total Time:  0.0001804828643798828

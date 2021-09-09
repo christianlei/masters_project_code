@@ -52,4 +52,4 @@ number of nodes:  256
   (254, 254)	4
   (255, 255)	4
 adj_test.shape: (256, 256)
-Total Time:  0.00018405914306640625
+Total Time:  0.00017547607421875

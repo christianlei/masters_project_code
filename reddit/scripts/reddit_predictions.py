@@ -68,9 +68,11 @@ model.load_weights(checkpoint_path)
 test_features = features[test_index]
 # print("TEST INDEX SHAPE BEFORE SPLICE:", test_features.shape)
 
-test_features = features[test_index][0:number_of_nodes]
+# test_features = features[test_index][0:number_of_nodes]
+test_features = features[0:number_of_nodes]
 print(test_features.shape)
-adj_test = adj[test_index, :][:, test_index]
+# adj_test = adj[test_index, :][:, test_index]
+adj_test = adj
 print("ADJ MATRIX BEFORE", adj_test.shape)
 adj_test = adj_test[:, :number_of_nodes][:number_of_nodes,:]
 print("ADJ MATRIX AFTER", adj_test.shape)

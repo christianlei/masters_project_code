@@ -5,4 +5,4 @@ number of nodes:  4
   (2, 2)	4.0
   (3, 3)	4.0
 adj_test.shape: (4, 4)
-Total Time:  0.00016832351684570312
+Total Time:  0.00017404556274414062
