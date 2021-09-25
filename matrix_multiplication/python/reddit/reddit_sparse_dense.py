@@ -3,16 +3,6 @@ import random
 import numpy as np
 import sys
 
-def makelist():
-    random_int = random.randint(6, 12)
-    num_list = []
-    for row in range(0, 20):
-        row_list = []
-        for count in range(0, 20):
-            row_list.append(random_int)
-        num_list.append(row_list)
-    return num_list
-
 def loadRedditFromNPZ(dataset_dir):
     adj = sp.load_npz(dataset_dir+"reddit_adj.npz")
     data = np.load(dataset_dir+"reddit.npz")
@@ -43,7 +33,7 @@ def main():
     # matrix1 - sparse matrix
     # matrix2 - dense matrix
 
-    adj, features, y_train, y_val, y_test, train_index, val_index, test_index = loadRedditFromNPZ("../../../data/reddit/")
+    adj, features, y_train, y_val, y_test, train_index, val_index, test_index = loadRedditFromNPZ("../../../../data/reddit/")
 
     sparse_array = adj+adj.T
     sparse_array = sparse_array[:, :number_of_nodes][:number_of_nodes,:]

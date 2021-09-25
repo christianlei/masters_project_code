@@ -5,16 +5,6 @@ import numpy as np
 import sys
 import scipy
 
-def makelist():
-    random_int = random.randint(6, 12)
-    num_list = []
-    for row in range(0, 20):
-        row_list = []
-        for count in range(0, 20):
-            row_list.append(random_int)
-        num_list.append(row_list)
-    return num_list
-
 def sparse_dense_multiplication(matrix1, matrix2):
     first_dimension = matrix1.get_shape()[0]
     second_dimension = len(matrix2[0])
@@ -45,7 +35,7 @@ def main():
     # matrix1 - sparse matrix
     # matrix2 - dense matrix
 
-    adj = scipy.sparse.load_npz('../../../data/' + dataset + '/' + dataset + '_adj.npz')
+    adj = scipy.sparse.load_npz('../../../../data/' + dataset + '/' + dataset + '_adj.npz')
 
     sparse_array = adj+adj.T
     sparse_array = sparse_array[:, :number_of_nodes][:number_of_nodes,:]
