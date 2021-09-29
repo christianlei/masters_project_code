@@ -8,12 +8,14 @@ import scipy
 def sparse_dense_multiplication(matrix1, matrix2):
     first_dimension = matrix1.get_shape()[0]
     second_dimension = len(matrix2[0])
-    
-    result_matrix = [[0] * second_dimension for i in range(first_dimension)]
-
     value = matrix1.data
     column_idx = matrix1.indices
     ind_ptr = matrix1.indptr
+
+    return sparse_dense_multiplication_operation(first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2)
+
+def sparse_dense_multiplication_operation(first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2):
+    result_matrix = np.zeros((first_dimension, second_dimension))
     
     for i in range(first_dimension):
         for k in range(ind_ptr[i + 1] - ind_ptr[i]):
@@ -21,9 +23,6 @@ def sparse_dense_multiplication(matrix1, matrix2):
             for j in range(second_dimension):
                 result_matrix[i][j] += value[row + k] * matrix2[column_idx[row + k]][j]
     return result_matrix
-
-
-
 
 def main():
 
