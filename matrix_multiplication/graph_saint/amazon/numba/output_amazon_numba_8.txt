@@ -2,4 +2,4 @@ number_of_nodes:  8
 dataset:  amazon
 sparse array shape:  (8, 8)
 dense array shape:  (8, 128)
-Numba time taken:  9.775161743164062e-06
+Numba time taken:  1.0251998901367188e-05

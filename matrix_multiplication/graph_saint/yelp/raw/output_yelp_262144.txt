@@ -1,4 +1,0 @@
-number_of_nodes:  262144
-dataset:  yelp
-sparse array shape:  (262144, 262144)
-dense array shape:  (262144, 16)

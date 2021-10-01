@@ -1,0 +1,5 @@
+number_of_nodes:  8
+run with numba:  False
+sparse array shape:  (8, 8)
+dense array shape:  (8, 256)
+Total Time:  5.4836273193359375e-06

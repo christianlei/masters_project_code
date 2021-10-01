@@ -1,0 +1,5 @@
+number_of_nodes:  8192
+dataset:  amazon
+sparse array shape:  (8192, 8192)
+dense array shape:  (8192, 128)
+Numba time taken:  0.0038123130798339844

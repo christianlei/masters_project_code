@@ -2,4 +2,4 @@ number_of_nodes:  256
 dataset:  yelp
 sparse array shape:  (256, 256)
 dense array shape:  (256, 16)
-Numba time taken:  1.811981201171875e-05
+Numba time taken:  1.8358230590820312e-05

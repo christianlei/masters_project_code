@@ -1,4 +1,0 @@
-number_of_nodes:  131072
-dataset:  amazon
-sparse array shape:  (131072, 131072)
-dense array shape:  (131072, 128)

@@ -1,0 +1,4 @@
+number_of_nodes:  4096
+dataset:  amazon
+sparse array shape:  (4096, 4096)
+dense array shape:  (4096, 128)
