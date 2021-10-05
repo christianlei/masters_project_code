@@ -1,5 +1,0 @@
-number_of_nodes:  8
-dataset:  yelp
-sparse array shape:  (8, 8)
-dense array shape:  (8, 16)
-Numba time taken:  9.059906005859375e-06

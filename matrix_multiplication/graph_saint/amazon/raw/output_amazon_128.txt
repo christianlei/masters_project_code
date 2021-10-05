@@ -1,4 +1,6 @@
 number_of_nodes:  128
 dataset:  amazon
+run with numba:  False
 sparse array shape:  (128, 128)
 dense array shape:  (128, 128)
+Total Time:  0.07842826843261719

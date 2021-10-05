@@ -30,9 +30,9 @@ python3 reddit_sparse_dense.py 8192 False> ../raw/output_reddit_8192.txt
 
 python3 reddit_sparse_dense.py 16384 False> ../raw/output_reddit_16384.txt
 
-python3 reddit_sparse_dense.py 32768 False> ../raw/output_reddit_32768.txt
+# python3 reddit_sparse_dense.py 32768 False> ../raw/output_reddit_32768.txt
 
-python3 reddit_sparse_dense.py 65536 False> ../raw/output_reddit_65536.txt
+# python3 reddit_sparse_dense.py 65536 False> ../raw/output_reddit_65536.txt
 
 # python3 reddit_sparse_dense.py 131072 False> ../raw/output_reddit_131072.txt
 

@@ -1,0 +1,6 @@
+number_of_nodes:  512
+dataset:  yelp
+run with numba:  True
+sparse array shape:  (512, 512)
+dense array shape:  (512, 16)
+Numba Total Time:  1.7642974853515625e-05

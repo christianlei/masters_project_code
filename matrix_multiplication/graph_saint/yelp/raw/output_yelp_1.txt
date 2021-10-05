@@ -1,0 +1,6 @@
+number_of_nodes:  1
+dataset:  yelp
+run with numba:  False
+sparse array shape:  (1, 1)
+dense array shape:  (1, 16)
+Total Time:  8.559226989746094e-05

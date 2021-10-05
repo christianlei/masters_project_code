@@ -83,8 +83,11 @@ def main():
     np.testing.assert_almost_equal(result_mat, res)
 
     # timing the numba implementation
+    print("Not Numba: ")
     sparse_dense_multiplication(sparse_array, dense_array, False, False)
 
+    print("Numba: ")
+    sparse_dense_multiplication(sparse_array, dense_array, True, False)
     return 
 
 if __name__ == "__main__":

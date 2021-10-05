@@ -1,0 +1,5 @@
+number_of_nodes:  8192
+run with numba:  True
+sparse array shape:  (8192, 8192)
+dense array shape:  (8192, 256)
+Numba Total Time:  0.01035928726196289

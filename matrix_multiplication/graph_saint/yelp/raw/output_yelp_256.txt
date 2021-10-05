@@ -1,4 +1,6 @@
 number_of_nodes:  256
 dataset:  yelp
+run with numba:  False
 sparse array shape:  (256, 256)
 dense array shape:  (256, 16)
+Total Time:  0.02021479606628418

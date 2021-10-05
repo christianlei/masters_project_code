@@ -31,21 +31,26 @@ def main():
     print("sparse array shape: ", sparse_array.shape)
     print("dense array shape: ", dense_array.shape)
 
-    first_dimension = sparse_array.get_shape()[0]
-    second_dimension = len(dense_array[0])
-    result_matrix = np.zeros((first_dimension, second_dimension))
-
-    result_matrix = sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array)
-
     matrix1 = sparse_array.todense()
     matrix2 = np.array(dense_array)
     res = np.matmul(matrix1, matrix2)
-    
-    np.testing.assert_almost_equal(result_matrix, res)
 
-    output = False
-    result_matrix = np.zeros((first_dimension, second_dimension))
-    sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array, numba, output)
+   
+    first_dimension = sparse_array.get_shape()[0]
+    second_dimension = len(dense_array[0])
+    if not numba:
+        result_matrix = np.zeros((first_dimension, second_dimension))
+        result_matrix = sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array)
+        np.testing.assert_almost_equal(result_matrix, res)
+
+    if numba:
+        output = True
+        result_matrix = np.zeros((first_dimension, second_dimension))
+        result_matrix = sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array, numba, output)
+        np.testing.assert_almost_equal(result_matrix, res)
+        output = False
+        sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array, numba, output) 
+    
     return 
 
 if __name__ == "__main__":

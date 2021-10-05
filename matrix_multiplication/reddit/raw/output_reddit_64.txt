@@ -2,4 +2,4 @@ number_of_nodes:  64
 run with numba:  False
 sparse array shape:  (64, 64)
 dense array shape:  (64, 256)
-Total Time:  0.0017764568328857422
+Total Time:  0.0017657279968261719

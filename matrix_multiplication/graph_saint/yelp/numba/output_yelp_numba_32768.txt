@@ -1,5 +1,0 @@
-number_of_nodes:  32768
-dataset:  yelp
-sparse array shape:  (32768, 32768)
-dense array shape:  (32768, 16)
-Numba time taken:  0.0018231868743896484
