@@ -1,2 +1,0 @@
-number_of_nodes:  1048576
-run with numba:  True

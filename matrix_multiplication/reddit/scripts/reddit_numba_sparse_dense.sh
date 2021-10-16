@@ -34,12 +34,12 @@ python3 reddit_sparse_dense.py 32768 True > ../numba/output_reddit_32768.txt
 
 python3 reddit_sparse_dense.py 65536 True > ../numba/output_reddit_65536.txt
 
-python3 reddit_sparse_dense.py 131072 True > ../numba/output_reddit_131072.txt
+# python3 reddit_sparse_dense.py 131072 True > ../numba/output_reddit_131072.txt
 
-python3 reddit_sparse_dense.py 262144 True > ../numba/output_reddit_262144.txt
+# python3 reddit_sparse_dense.py 262144 True > ../numba/output_reddit_262144.txt
 
-python3 reddit_sparse_dense.py 524288 True > ../numba/output_reddit_524288.txt
+# python3 reddit_sparse_dense.py 524288 True > ../numba/output_reddit_524288.txt
 
-python3 reddit_sparse_dense.py 1048576 True > ../numba/output_reddit_1048576.txt
+# python3 reddit_sparse_dense.py 1048576 True > ../numba/output_reddit_1048576.txt
 
-python3 reddit_sparse_dense.py 1569959 True > ../numba/output_reddit_1569959.txt
+# python3 reddit_sparse_dense.py 1569959 True > ../numba/output_reddit_1569959.txt

@@ -50,7 +50,15 @@ def main():
         np.testing.assert_almost_equal(result_matrix, res)
         output = False
         sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array, numba, output) 
-    
+
+        parallel = True
+        output = True
+        result_matrix = np.zeros((first_dimension, second_dimension))
+        result_matrix = sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array, numba, output, parallel)
+        np.testing.assert_almost_equal(result_matrix, res)
+        output = False
+        sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array, numba, output, parallel) 
+
     return 
 
 if __name__ == "__main__":
