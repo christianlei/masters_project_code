@@ -12,6 +12,7 @@ def main():
     matrix1 = np.random.rand(1024,1)
     matrix2 = np.random.rand(1024,1)
     result_matrix = np.zeros((1024, 1))
+    vector_addition(result_matrix, matrix1, matrix2)
     start = time.time()
     vector_addition(result_matrix, matrix1, matrix2)
     end = time.time()

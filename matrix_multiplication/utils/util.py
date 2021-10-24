@@ -10,7 +10,9 @@ def sparse_dense_multiplication(result_matrix, first_dimension, second_dimension
     column_idx = matrix1.indices
     ind_ptr = matrix1.indptr
 
-    if output and numba:
+    if output and numba and parallel:
+        return sparse_dense_multiplication_operation_numba_parallel(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2)
+    if output and numba and not parallel:
         return sparse_dense_multiplication_operation_numba(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2)
     if output and not numba:
         start = time.time()
@@ -35,25 +37,25 @@ def sparse_dense_multiplication(result_matrix, first_dimension, second_dimension
 @njit
 def sparse_dense_multiplication_operation_numba(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2):
     for i in range(first_dimension):
-        for z in range(10000):
-            row = ind_ptr[i]
-            for j in range(second_dimension):
-                tmp = 0.0
-                for k in range(ind_ptr[i + 1] - ind_ptr[i]):
-                     tmp += value[row + k] * matrix2[column_idx[row + k]][j]
-                     result_matrix[i][j] = tmp
+        # for z in range(10000):
+        row = ind_ptr[i]
+        for j in range(second_dimension):
+            tmp = 0.0
+            for k in range(ind_ptr[i + 1] - ind_ptr[i]):
+                    tmp += value[row + k] * matrix2[column_idx[row + k]][j]
+                    result_matrix[i][j] = tmp
     return result_matrix
 
 @njit(parallel=True)
 def sparse_dense_multiplication_operation_numba_parallel(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2):
     for i in prange(first_dimension):
-        for z in range(10000):
-            row = ind_ptr[i]
-            for j in range(second_dimension):
-                    tmp = 0.0
-                    for k in range(ind_ptr[i + 1] - ind_ptr[i]):
-                        tmp += value[row + k] * matrix2[column_idx[row + k]][j]
-                    result_matrix[i][j]	= tmp
+        # for z in range(10000):
+        row = ind_ptr[i]
+        for j in range(second_dimension):
+                tmp = 0.0
+                for k in range(ind_ptr[i + 1] - ind_ptr[i]):
+                    tmp += value[row + k] * matrix2[column_idx[row + k]][j]
+                result_matrix[i][j]	= tmp
     return result_matrix
 
 def sparse_dense_multiplication_operation(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2):

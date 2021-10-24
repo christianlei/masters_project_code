@@ -3,4 +3,5 @@ dataset:  amazon
 run with numba:  True
 sparse array shape:  (8192, 8192)
 dense array shape:  (8192, 128)
-Numba Total Time:  0.0025787353515625
+Numba Total Time:  0.0042989253997802734
+Parallel Numba Total Time:  0.0011332035064697266

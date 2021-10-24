@@ -2,5 +2,5 @@ number_of_nodes:  32
 run with numba:  True
 sparse array shape:  (32, 32)
 dense array shape:  (32, 256)
-Numba Total Time:  0.0869908332824707
-Parallel Numba Total Time:  0.3380153179168701
+Numba Total Time:  1.71661376953125e-05
+Parallel Numba Total Time:  1.049041748046875e-05

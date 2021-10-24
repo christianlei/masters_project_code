@@ -5,7 +5,7 @@
 using namespace std;
 using namespace std::chrono;
 
-#define NUM_OF_THREADS 1
+#define NUM_OF_THREADS 8
 typedef double reduce_type;
 
 void reference_reduction(reduce_type *matrix1, reduce_type *matrix2, reduce_type *result_matrix, int size) {

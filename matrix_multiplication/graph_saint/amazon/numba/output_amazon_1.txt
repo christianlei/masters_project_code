@@ -4,3 +4,4 @@ run with numba:  True
 sparse array shape:  (1, 1)
 dense array shape:  (1, 128)
 Numba Total Time:  4.76837158203125e-06
+Parallel Numba Total Time:  5.054473876953125e-05

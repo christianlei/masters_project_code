@@ -1,0 +1,6 @@
+number_of_nodes:  65536
+run with numba:  True
+sparse array shape:  (65536, 65536)
+dense array shape:  (65536, 256)
+Numba Total Time:  0.9695403575897217
+Parallel Numba Total Time:  0.16639971733093262

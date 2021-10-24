@@ -3,4 +3,5 @@ dataset:  yelp
 run with numba:  True
 sparse array shape:  (8192, 8192)
 dense array shape:  (8192, 16)
-Numba Total Time:  0.0002200603485107422
+Numba Total Time:  0.00041556358337402344
+Parallel Numba Total Time:  9.775161743164062e-05
