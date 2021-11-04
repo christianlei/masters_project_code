@@ -1,7 +1,4 @@
-from numba.np.ufunc import parallel
 from numpy.lib.function_base import diff
-import scipy.sparse as sp
-import time
 import numpy as np
 import sys
 import scipy
@@ -61,6 +58,7 @@ def main():
         np.testing.assert_almost_equal(result_matrix, res)
         output = False
         sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array, numba, output, parallel)
+
 
     return 
 

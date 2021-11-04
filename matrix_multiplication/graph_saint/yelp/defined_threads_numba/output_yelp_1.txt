@@ -1,0 +1,11 @@
+________manually allocated threads_________
+number_of_nodes:  1
+dataset:  yelp
+edges_per_thread 0.125
+sparse_mat.shape (1, 1)
+nodes_per_thread [(0, 1, 1), (1, 1, 0)]
+sparse array shape:  (1, 1)
+dense array shape:  (1, 16)
+Manual Allocaition Numba Total Time:  1.049041748046875e-05
+Numba Total Time:  4.291534423828125e-06
+Parallel Numba Total Time:  9.5367431640625e-06

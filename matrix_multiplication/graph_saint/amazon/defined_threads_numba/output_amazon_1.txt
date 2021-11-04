@@ -1,0 +1,11 @@
+________manually allocated threads_________
+number_of_nodes:  1
+dataset:  amazon
+edges_per_thread 0.125
+sparse_mat.shape (1, 1)
+nodes_per_thread [(0, 1, 1), (1, 1, 0)]
+sparse array shape:  (1, 1)
+dense array shape:  (1, 128)
+Manual Allocaition Numba Total Time:  1.0013580322265625e-05
+Numba Total Time:  5.0067901611328125e-06
+Parallel Numba Total Time:  1.0013580322265625e-05

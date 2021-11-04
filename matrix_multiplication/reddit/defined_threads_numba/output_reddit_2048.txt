@@ -1,0 +1,10 @@
+________manually allocated threads_________
+number_of_nodes:  2048
+edges_per_thread 247.5
+sparse_mat.shape (2048, 2048)
+nodes_per_thread [(0, 258, 258), (258, 529, 271), (529, 767, 238), (767, 1020, 253), (1020, 1300, 280), (1300, 1562, 262), (1562, 1796, 234), (1796, 2048, 252)]
+first_dimension 2048
+second_dimension 256
+Manual Allocaition Numba Total Time:  0.00043201446533203125
+Numba Total Time:  0.0014493465423583984
+Parallel Numba Total Time:  0.0004296302795410156

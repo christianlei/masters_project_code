@@ -1,7 +1,3 @@
 number_of_nodes:  128
 dataset:  yelp
 run with numba:  True
-sparse array shape:  (128, 128)
-dense array shape:  (128, 16)
-Numba Total Time:  1.0251998901367188e-05
-Parallel Numba Total Time:  1.0251998901367188e-05
