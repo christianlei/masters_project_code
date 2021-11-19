@@ -3,9 +3,10 @@ number_of_nodes:  256
 dataset:  yelp
 edges_per_thread 32.0
 sparse_mat.shape (256, 256)
-nodes_per_thread [(0, 32, 32), (32, 64, 32), (64, 96, 32), (96, 128, 32), (128, 160, 32), (160, 192, 32), (192, 224, 32), (224, 256, 32), (256, 256, 0)]
+nodes_per_thread [(0, 32, 32, 32), (32, 64, 32, 32), (64, 96, 32, 32), (96, 128, 32, 32), (128, 160, 32, 32), (160, 192, 32, 32), (192, 224, 32, 32), (224, 256, 32, 32), (256, 256, 0, 0)]
+allocation_tuples:  [(0, 32, 32, 32), (32, 64, 32, 32), (64, 96, 32, 32), (96, 128, 32, 32), (128, 160, 32, 32), (160, 192, 32, 32), (192, 224, 32, 32), (224, 256, 32, 32), (256, 256, 0, 0)]
 sparse array shape:  (256, 256)
 dense array shape:  (256, 16)
-Manual Allocaition Numba Total Time:  1.52587890625e-05
-Numba Total Time:  1.7881393432617188e-05
+Manual Allocaition Numba Total Time:  1.4781951904296875e-05
+Numba Total Time:  1.7404556274414062e-05
 Parallel Numba Total Time:  1.1444091796875e-05

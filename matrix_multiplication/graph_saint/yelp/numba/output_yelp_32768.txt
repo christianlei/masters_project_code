@@ -1,0 +1,7 @@
+number_of_nodes:  32768
+dataset:  yelp
+run with numba:  True
+sparse array shape:  (32768, 32768)
+dense array shape:  (32768, 1024)
+Numba Total Time:  0.10863733291625977
+Parallel Numba Total Time:  0.026704072952270508

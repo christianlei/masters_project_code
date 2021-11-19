@@ -22,7 +22,7 @@ def main():
 
     node_count, edge_count  = count_nodes_and_edges(sparse_array)
     allocation_tuples = determine_nodes_per_thread(sparse_array, edge_count, number_of_threads)
-
+    print("allocation_tuples: ", allocation_tuples)
     if dataset == 'yelp':
         dense_array = np.random.rand(number_of_nodes, 16)
     else:

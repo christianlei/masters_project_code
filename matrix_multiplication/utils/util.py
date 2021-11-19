@@ -69,6 +69,7 @@ def sparse_dense_multiplication_operation_numba_parallel(result_matrix, first_di
         for j in range(second_dimension):
                 tmp = 0.0
                 for k in range(ind_ptr[i + 1] - ind_ptr[i]):
+                    # value[row+k] *= matrix2[column_idx[row+k]][j]
                     tmp += value[row + k] * matrix2[column_idx[row + k]][j]
                 result_matrix[i][j]	= tmp
     return result_matrix
@@ -84,6 +85,7 @@ def sparse_dense_multiplication_operation_numba_parallel_allocated_manual(result
             for j in range(second_dimension):
                 tmp = 0.0
                 for k in range(ind_ptr[i + 1] - ind_ptr[i]):
+                    # value[row+k] *= matrix2[column_idx[row+k]][j]
                     tmp += value[row + k] * matrix2[column_idx[row + k]][j]
                 result_matrix[i][j]	= tmp
     return result_matrix

@@ -2,9 +2,10 @@ ________manually allocated threads_________
 number_of_nodes:  64
 edges_per_thread 0.25
 sparse_mat.shape (64, 64)
-nodes_per_thread [(0, 20, 20), (20, 36, 16), (36, 64, 28)]
+nodes_per_thread [(0, 20, 20, 1), (20, 36, 16, 1), (36, 64, 28, 0)]
+allocation_tuples:  [(0, 20, 20, 1), (20, 36, 16, 1), (36, 64, 28, 0)]
 first_dimension 64
 second_dimension 256
-Manual Allocaition Numba Total Time:  2.09808349609375e-05
+Manual Allocaition Numba Total Time:  3.647804260253906e-05
 Numba Total Time:  3.123283386230469e-05
-Parallel Numba Total Time:  1.3589859008789062e-05
+Parallel Numba Total Time:  1.33514404296875e-05

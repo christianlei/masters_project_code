@@ -1,7 +1,7 @@
 from numpy.lib.function_base import diff
 import numpy as np
 import sys
-import scipy
+from scipy import sparse
 sys.path.append('../../utils')
 from util import sparse_dense_multiplication
 
@@ -17,13 +17,14 @@ def main():
     # matrix1 - sparse matrix
     # matrix2 - dense matrix
 
-    adj = scipy.sparse.load_npz('../../../../data/' + dataset + '/' + dataset + '_adj.npz')
+    adj = sparse.load_npz('../../../../data/' + dataset + '/' + dataset + '_adj.npz')
 
     sparse_array = adj+adj.T
     sparse_array = sparse_array[:, :number_of_nodes][:number_of_nodes,:]
 
     if dataset == 'yelp':
-        dense_array = np.random.rand(number_of_nodes, 16)
+        # dense_array = np.random.rand(number_of_nodes, 16)
+        dense_array = np.random.rand(number_of_nodes, 1024)
     else:
         dense_array = np.random.rand(number_of_nodes, 128)
 

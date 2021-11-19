@@ -3,7 +3,7 @@ import scipy.sparse as sp
 import numpy as np
 import sys
 sys.path.append('../../utils')
-from utils import count_nodes_and_edges, determine_nodes_per_thread
+from utils import count_nodes_and_edges, determine_nodes_per_thread, determine_edges_per_thread
 
 def loadRedditFromNPZ(dataset_dir):
     adj = sp.load_npz(dataset_dir+"reddit_adj.npz")
@@ -24,6 +24,7 @@ def main():
     else:
         node_count, edge_count  = count_nodes_and_edges(sparse_mat)
     determine_nodes_per_thread(sparse_mat, edge_count, number_of_threads)
+    determine_edges_per_thread(sparse_mat, number_of_threads)
 
 if __name__ == "__main__":
     main()

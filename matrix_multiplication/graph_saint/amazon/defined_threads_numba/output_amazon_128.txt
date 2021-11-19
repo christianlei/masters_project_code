@@ -3,9 +3,10 @@ number_of_nodes:  128
 dataset:  amazon
 edges_per_thread 16.0
 sparse_mat.shape (128, 128)
-nodes_per_thread [(0, 16, 16), (16, 32, 16), (32, 48, 16), (48, 64, 16), (64, 80, 16), (80, 96, 16), (96, 112, 16), (112, 128, 16), (128, 128, 0)]
+nodes_per_thread [(0, 16, 16, 16), (16, 32, 16, 16), (32, 48, 16, 16), (48, 64, 16, 16), (64, 80, 16, 16), (80, 96, 16, 16), (96, 112, 16, 16), (112, 128, 16, 16), (128, 128, 0, 0)]
+allocation_tuples:  [(0, 16, 16, 16), (16, 32, 16, 16), (32, 48, 16, 16), (48, 64, 16, 16), (64, 80, 16, 16), (80, 96, 16, 16), (96, 112, 16, 16), (112, 128, 16, 16), (128, 128, 0, 0)]
 sparse array shape:  (128, 128)
 dense array shape:  (128, 128)
-Manual Allocaition Numba Total Time:  2.8371810913085938e-05
+Manual Allocaition Numba Total Time:  2.6226043701171875e-05
 Numba Total Time:  5.316734313964844e-05
-Parallel Numba Total Time:  1.5974044799804688e-05
+Parallel Numba Total Time:  1.7404556274414062e-05
