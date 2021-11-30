@@ -1,0 +1,5 @@
+________CUDA Numba Code_________
+number_of_nodes:  4096
+first_dimension 4096
+second_dimension 256
+Cuda Numba Total Time:  0.00013875961303710938

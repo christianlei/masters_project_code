@@ -1,0 +1,6 @@
+________CUDA Numba Code_________
+number_of_nodes:  32768
+dataset:  amazon
+sparse array shape:  (32768, 32768)
+dense array shape:  (32768, 128)
+Cuda Numba Total Time:  0.00013756752014160156

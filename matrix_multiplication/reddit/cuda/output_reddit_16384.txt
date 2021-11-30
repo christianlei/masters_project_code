@@ -1,0 +1,5 @@
+________CUDA Numba Code_________
+number_of_nodes:  16384
+first_dimension 16384
+second_dimension 256
+Cuda Numba Total Time:  0.0001404285430908203

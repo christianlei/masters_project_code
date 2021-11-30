@@ -1,0 +1,6 @@
+________CUDA Numba Code_________
+number_of_nodes:  4
+dataset:  yelp
+sparse array shape:  (4, 4)
+dense array shape:  (4, 1024)
+Cuda Numba Total Time:  0.00020694732666015625

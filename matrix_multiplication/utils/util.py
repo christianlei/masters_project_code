@@ -1,6 +1,7 @@
 import numpy as np
-from numba import njit, prange, typed
+from numba import njit, prange, typed, cuda, float32
 import time
+import math
 
 def sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, matrix1, matrix2, numba=False, output=True, parallel=False): # result_matrix, first_dimension, second_dimension,
     # first_dimension = matrix1.get_shape()[0]
@@ -51,6 +52,64 @@ def sparse_dense_multiplication_manual_allocation(result_matrix, second_dimensio
     return
 
 
+def sparse_dense_multiplication_cuda(result_matrix, first_dimension, second_dimension, matrix1, matrix2, output=True):
+    value = matrix1.data
+    column_idx = matrix1.indices
+    ind_ptr = matrix1.indptr
+
+    TPB = 16
+
+    threadsperblock = (TPB, TPB)
+    blockspergrid_x = int(math.ceil(first_dimension / threadsperblock[0]))
+    blockspergrid_y = int(math.ceil(second_dimension / threadsperblock[1]))
+    blockspergrid = (blockspergrid_x, blockspergrid_y)
+    
+    mat2_global_mem = cuda.to_device(matrix2)
+    value_global_mem = cuda.to_device(value)
+    ind_ptr_global_mem = cuda.to_device(ind_ptr)
+    column_idx_global_mem = cuda.to_device(column_idx)
+    result_global_mem = cuda.device_array((first_dimension, second_dimension))
+
+    if output:
+        sparse_dense_multiplication_numba_parallel_cuda[blockspergrid, threadsperblock](result_global_mem, first_dimension, second_dimension, value_global_mem, column_idx_global_mem, ind_ptr_global_mem, mat2_global_mem)
+        result_matrix = result_global_mem.copy_to_host()
+        return result_matrix
+    else:
+        start = time.time()
+        sparse_dense_multiplication_numba_parallel_cuda[blockspergrid, threadsperblock](result_global_mem, first_dimension, second_dimension, value_global_mem, column_idx_global_mem, ind_ptr_global_mem, mat2_global_mem)
+        end = time.time()
+        print("Cuda Numba Total Time: ", end - start)
+    return
+
+@cuda.jit
+def sparse_dense_multiplication_numba_parallel_cuda(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2):
+    x, y = cuda.grid(2)
+    TPB = 16
+
+    sA = cuda.shared.array(shape=(TPB, TPB), dtype=float32)
+    sB = cuda.shared.array(shape=(TPB, TPB), dtype=float32)
+
+    tx = cuda.threadIdx.x
+    ty = cuda.threadIdx.y
+
+    if x >= result_matrix.shape[0] and y >= result_matrix.shape[1]:
+        # Quit if (x, y) is outside of valid C boundary
+        return
+
+    if x < first_dimension and y < second_dimension:
+        for k in range(ind_ptr[x + 1] - ind_ptr[x]):
+            row = ind_ptr[x]
+            result_matrix[x][y] += value[row + k] * matrix2[column_idx[row + k]][y]
+
+
+def sparse_dense_multiplication_operation(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2):
+    for i in range(first_dimension):
+        for k in range(ind_ptr[i + 1] - ind_ptr[i]):
+            row = ind_ptr[i]
+            for j in range(second_dimension):
+                result_matrix[i][j] += value[row + k] * matrix2[column_idx[row + k]][j]
+    return result_matrix
+
 @njit
 def sparse_dense_multiplication_operation_numba(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2):
     for i in range(first_dimension):
@@ -88,12 +147,4 @@ def sparse_dense_multiplication_operation_numba_parallel_allocated_manual(result
                     # value[row+k] *= matrix2[column_idx[row+k]][j]
                     tmp += value[row + k] * matrix2[column_idx[row + k]][j]
                 result_matrix[i][j]	= tmp
-    return result_matrix
-
-def sparse_dense_multiplication_operation(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2):
-    for i in range(first_dimension):
-        for k in range(ind_ptr[i + 1] - ind_ptr[i]):
-            row = ind_ptr[i]
-            for j in range(second_dimension):
-                result_matrix[i][j] += value[row + k] * matrix2[column_idx[row + k]][j]
     return result_matrix
