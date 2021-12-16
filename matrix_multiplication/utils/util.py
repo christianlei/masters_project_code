@@ -22,10 +22,13 @@ def sparse_dense_multiplication(result_matrix, first_dimension, second_dimension
         print("Total Time: ", end - start)
         return return_matrix
     if numba and parallel:
-        start = time.time()
-        sparse_dense_multiplication_operation_numba_parallel(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2)
-        end = time.time()
-        print("Parallel Numba Total Time: ", end - start)
+        time_list = []
+        for _ in range(10):
+            start = time.time()
+            sparse_dense_multiplication_operation_numba_parallel(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2)
+            end = time.time()
+            time_list.append(end-start)
+        print("Parallel Numba Total Time: ", sum(time_list)/len(time_list))
         return
     if numba:
         start = time.time()
@@ -43,12 +46,16 @@ def sparse_dense_multiplication_manual_allocation(result_matrix, second_dimensio
     allocation_tuples = typed.List(allocation_tuples)
     
     if output:
-        return sparse_dense_multiplication_operation_numba_parallel_allocated_manual(result_matrix, second_dimension, value, column_idx, ind_ptr, matrix2, allocation_tuples)
+        return sparse_dense_multiplication_operation_numba_parallel_allocated_manual_2(result_matrix, second_dimension, value, column_idx, ind_ptr, matrix2, allocation_tuples)
     else:
-        start = time.time()
-        sparse_dense_multiplication_operation_numba_parallel_allocated_manual(result_matrix, second_dimension, value, column_idx, ind_ptr, matrix2, allocation_tuples)
-        end = time.time()
-        print("Manual Allocaition Numba Total Time: ", end - start)
+        time_list = []
+        for _ in range(10):
+            start = time.time()
+            sparse_dense_multiplication_operation_numba_parallel_allocated_manual_2(result_matrix, second_dimension, value, column_idx, ind_ptr, matrix2, allocation_tuples)
+            end = time.time()
+            time_list.append(end-start)
+        avg = sum(time_list)/len(time_list)
+        print("Manual Allocation Numba Total Time: ", avg)
     return
 
 
@@ -57,7 +64,7 @@ def sparse_dense_multiplication_cuda(result_matrix, first_dimension, second_dime
     column_idx = matrix1.indices
     ind_ptr = matrix1.indptr
 
-    TPB = 16
+    TPB = 32
 
     threadsperblock = (TPB, TPB)
     blockspergrid_x = int(math.ceil(first_dimension / threadsperblock[0]))
@@ -84,13 +91,6 @@ def sparse_dense_multiplication_cuda(result_matrix, first_dimension, second_dime
 @cuda.jit
 def sparse_dense_multiplication_numba_parallel_cuda(result_matrix, first_dimension, second_dimension, value, column_idx, ind_ptr, matrix2):
     x, y = cuda.grid(2)
-    TPB = 16
-
-    sA = cuda.shared.array(shape=(TPB, TPB), dtype=float32)
-    sB = cuda.shared.array(shape=(TPB, TPB), dtype=float32)
-
-    tx = cuda.threadIdx.x
-    ty = cuda.threadIdx.y
 
     if x >= result_matrix.shape[0] and y >= result_matrix.shape[1]:
         # Quit if (x, y) is outside of valid C boundary
@@ -117,8 +117,9 @@ def sparse_dense_multiplication_operation_numba(result_matrix, first_dimension, 
         for j in range(second_dimension):
             tmp = 0.0
             for k in range(ind_ptr[i + 1] - ind_ptr[i]):
-                    tmp += value[row + k] * matrix2[column_idx[row + k]][j]
-                    result_matrix[i][j] = tmp
+                tmp += value[row + k] * matrix2[column_idx[row + k]][j]
+            #add an activation right here (ex. sqrt) to increase the runtime of the kernals, you can also add a bias in right here, too. Might mess up answer, but its ok if correct beforehand.
+            result_matrix[i][j] = tmp
     return result_matrix
 
 @njit(parallel=True)
@@ -146,5 +147,22 @@ def sparse_dense_multiplication_operation_numba_parallel_allocated_manual(result
                 for k in range(ind_ptr[i + 1] - ind_ptr[i]):
                     # value[row+k] *= matrix2[column_idx[row+k]][j]
                     tmp += value[row + k] * matrix2[column_idx[row + k]][j]
+                result_matrix[i][j]	= tmp
+    return result_matrix
+
+
+@njit(parallel=True)
+def sparse_dense_multiplication_operation_numba_parallel_allocated_manual_2(result_matrix, second_dimension, value, column_idx, ind_ptr, matrix2, allocation_tuples):
+    num_threads = len(allocation_tuples)
+    for tid in prange(num_threads): #launch 8 threads
+        lower_bound = allocation_tuples[tid][0]
+        upper_bound = allocation_tuples[tid][1]
+        for i in range(lower_bound, upper_bound): 
+            row = ind_ptr[i]
+            for j in range(second_dimension):
+                tmp = 0.0
+                for k in range(ind_ptr[i + 1] - ind_ptr[i]):
+                    # value[row+k] *= matrix2[column_idx[row+k]][j]
+                    tmp += value[row + k] * matrix2[j][column_idx[row + k]]
                 result_matrix[i][j]	= tmp
     return result_matrix

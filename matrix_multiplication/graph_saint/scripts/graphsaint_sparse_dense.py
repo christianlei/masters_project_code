@@ -60,7 +60,6 @@ def main():
         output = False
         sparse_dense_multiplication(result_matrix, first_dimension, second_dimension, sparse_array, dense_array, numba, output, parallel)
 
-
     return 
 
 if __name__ == "__main__":
