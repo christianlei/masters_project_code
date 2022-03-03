@@ -1,11 +1,12 @@
 ________manually allocated threads_________
 number_of_nodes:  64
-edges_per_thread 0.25
-sparse_mat.shape (64, 64)
-nodes_per_thread [(0, 20, 20, 1), (20, 36, 16, 1), (36, 64, 28, 0)]
-allocation_tuples:  [(0, 20, 20, 1), (20, 36, 16, 1), (36, 64, 28, 0)]
+allocation_tuples_equal_edges:  [(0, 20, 20, 1), (20, 36, 16, 1), (36, 64, 28, 0)]
+allocation_tuples_equal_nodes:  [(0, 8, 8, 0), (8, 16, 8, 0), (16, 24, 8, 1), (24, 32, 8, 0), (32, 40, 8, 1), (40, 48, 8, 0), (48, 56, 8, 0), (56, 64, 8, 0)]
 first_dimension 64
 second_dimension 256
-Manual Allocaition Numba Total Time:  3.647804260253906e-05
-Numba Total Time:  3.123283386230469e-05
-Parallel Numba Total Time:  1.33514404296875e-05
+Equal Node Count Matrix Multiplication: 
+Manual Allocation Numba Total Time:  1.1324882507324219e-05
+Equal Edge Count Matrix Multiplication with Dense Array Transposed
+Manual Allocation Numba Total Time:  1.8715858459472656e-05
+Numba Total Time:  2.384185791015625e-05
+Parallel Numba Total Time:  7.343292236328125e-06

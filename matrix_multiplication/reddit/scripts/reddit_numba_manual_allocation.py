@@ -15,7 +15,7 @@ def main():
     numba = True
     number_of_nodes = int(sys.argv[1])
     number_of_threads = int(sys.argv[2])
-    width = int(sys.argv[3])
+    # width = int(sys.argv[3])
     print("________manually allocated threads_________")
     print("number_of_nodes: ", number_of_nodes)
 
@@ -30,8 +30,8 @@ def main():
 
     allocation_tuples_edges = determine_edges_per_thread(sparse_array, number_of_threads)
     print("allocation_tuples_equal_nodes: ", allocation_tuples_edges)
-    # dense_array = np.random.rand(number_of_nodes, 256)
-    dense_array = np.random.rand(number_of_nodes, width)
+    dense_array = np.random.rand(number_of_nodes, 256)
+    # dense_array = np.random.rand(number_of_nodes, width)
     dense_array_T = dense_array.T
 
     matrix1 = sparse_array.todense()

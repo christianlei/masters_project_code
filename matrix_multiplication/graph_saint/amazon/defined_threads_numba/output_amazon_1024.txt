@@ -1,12 +1,9 @@
 ________manually allocated threads_________
 number_of_nodes:  1024
 dataset:  amazon
-edges_per_thread 137.5
-sparse_mat.shape (1024, 1024)
-nodes_per_thread [(0, 130, 130, 138), (130, 253, 123, 138), (253, 384, 131, 138), (384, 518, 134, 138), (518, 647, 129, 138), (647, 764, 117, 138), (764, 895, 131, 138), (895, 1024, 129, 134)]
-allocation_tuples:  [(0, 130, 130, 138), (130, 253, 123, 138), (253, 384, 131, 138), (384, 518, 134, 138), (518, 647, 129, 138), (647, 764, 117, 138), (764, 895, 131, 138), (895, 1024, 129, 134)]
-sparse array shape:  (1024, 1024)
-dense array shape:  (1024, 128)
-Manual Allocaition Numba Total Time:  0.00010442733764648438
-Numba Total Time:  0.0004076957702636719
-Parallel Numba Total Time:  9.298324584960938e-05
+Equal Node Count Matrix Multiplication: 
+Manual Allocation Numba Total Time:  7.672309875488282e-05
+Equal Edge Count Matrix Multiplication with Dense Array Transposed
+Manual Allocation Numba Total Time:  7.066726684570312e-05
+Numba Total Time:  0.00039768218994140625
+Parallel Numba Total Time:  6.778240203857422e-05

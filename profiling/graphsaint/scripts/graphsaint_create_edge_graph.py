@@ -4,8 +4,7 @@ import scipy.sparse as sp
 import sys
 
 def create_node_degree_graph(dataset):
-
-    sparse_mat = sp.load_npz('../../data/' +  dataset + '/' + dataset + '_adj.npz')
+    sparse_mat = sp.load_npz('/home/cclei/data/' +  dataset + '/' + dataset + '_adj.npz')
     counts = []
  
     # print(sparse_mat.shape)
@@ -22,6 +21,9 @@ def create_node_degree_graph(dataset):
     plt.hist(counts, density=True, bins=1000)
     # plt.ylim(0, 0.02)
     # plt.xlim(0,200)
+    plt.suptitle('Degrees of Nodes in ' + dataset.capitalize() + ' Graph', fontsize=20)
+    plt.xlabel("Degrees")
+    plt.ylabel("Occurrences")
     plt.yscale("log")
     plt.savefig('../' + dataset + '/graphs/' + dataset +  '_node_edges.png')
 

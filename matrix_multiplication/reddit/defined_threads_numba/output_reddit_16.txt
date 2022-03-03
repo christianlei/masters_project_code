@@ -1,11 +1,12 @@
 ________manually allocated threads_________
 number_of_nodes:  16
-edges_per_thread 0.0
-sparse_mat.shape (16, 16)
-nodes_per_thread [(0, 1, 1, 0), (1, 2, 1, 0), (2, 3, 1, 0), (3, 4, 1, 0), (4, 5, 1, 0), (5, 6, 1, 0), (6, 7, 1, 0), (7, 8, 1, 0), (8, 9, 1, 0), (9, 10, 1, 0), (10, 11, 1, 0), (11, 12, 1, 0), (12, 13, 1, 0), (13, 14, 1, 0), (14, 15, 1, 0), (15, 16, 1, 0), (16, 16, 0, 0)]
-allocation_tuples:  [(0, 1, 1, 0), (1, 2, 1, 0), (2, 3, 1, 0), (3, 4, 1, 0), (4, 5, 1, 0), (5, 6, 1, 0), (6, 7, 1, 0), (7, 8, 1, 0), (8, 9, 1, 0), (9, 10, 1, 0), (10, 11, 1, 0), (11, 12, 1, 0), (12, 13, 1, 0), (13, 14, 1, 0), (14, 15, 1, 0), (15, 16, 1, 0), (16, 16, 0, 0)]
+allocation_tuples_equal_edges:  [(0, 1, 1, 0), (1, 2, 1, 0), (2, 3, 1, 0), (3, 4, 1, 0), (4, 5, 1, 0), (5, 6, 1, 0), (6, 7, 1, 0), (7, 8, 1, 0), (8, 9, 1, 0), (9, 10, 1, 0), (10, 11, 1, 0), (11, 12, 1, 0), (12, 13, 1, 0), (13, 14, 1, 0), (14, 15, 1, 0), (15, 16, 1, 0), (16, 16, 0, 0)]
+allocation_tuples_equal_nodes:  [(0, 2, 2, 0), (2, 4, 2, 0), (4, 6, 2, 0), (6, 8, 2, 0), (8, 10, 2, 0), (10, 12, 2, 0), (12, 14, 2, 0), (14, 16, 2, 0)]
 first_dimension 16
 second_dimension 256
-Manual Allocaition Numba Total Time:  1.0967254638671875e-05
-Numba Total Time:  1.0728836059570312e-05
-Parallel Numba Total Time:  1.0013580322265625e-05
+Equal Node Count Matrix Multiplication: 
+Manual Allocation Numba Total Time:  6.604194641113281e-06
+Equal Edge Count Matrix Multiplication with Dense Array Transposed
+Manual Allocation Numba Total Time:  8.368492126464844e-06
+Numba Total Time:  9.298324584960938e-06
+Parallel Numba Total Time:  4.601478576660156e-06

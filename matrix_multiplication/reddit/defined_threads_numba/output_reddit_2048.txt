@@ -1,11 +1,12 @@
 ________manually allocated threads_________
 number_of_nodes:  2048
-edges_per_thread 247.5
-sparse_mat.shape (2048, 2048)
-nodes_per_thread [(0, 258, 258, 249), (258, 529, 271, 248), (529, 767, 238, 249), (767, 1020, 253, 250), (1020, 1300, 280, 250), (1300, 1562, 262, 250), (1562, 1796, 234, 249), (1796, 2048, 252, 235)]
-allocation_tuples:  [(0, 258, 258, 249), (258, 529, 271, 248), (529, 767, 238, 249), (767, 1020, 253, 250), (1020, 1300, 280, 250), (1300, 1562, 262, 250), (1562, 1796, 234, 249), (1796, 2048, 252, 235)]
+allocation_tuples_equal_edges:  [(0, 258, 258, 249), (258, 529, 271, 248), (529, 767, 238, 249), (767, 1020, 253, 250), (1020, 1300, 280, 250), (1300, 1562, 262, 250), (1562, 1796, 234, 249), (1796, 2048, 252, 235)]
+allocation_tuples_equal_nodes:  [(0, 256, 256, 246), (256, 512, 256, 231), (512, 768, 256, 269), (768, 1024, 256, 250), (1024, 1280, 256, 222), (1280, 1536, 256, 252), (1536, 1792, 256, 269), (1792, 2048, 256, 241)]
 first_dimension 2048
 second_dimension 256
-Manual Allocaition Numba Total Time:  0.00042700767517089844
-Numba Total Time:  0.0014562606811523438
-Parallel Numba Total Time:  0.00043702125549316406
+Equal Node Count Matrix Multiplication: 
+Manual Allocation Numba Total Time:  0.00024745464324951174
+Equal Edge Count Matrix Multiplication with Dense Array Transposed
+Manual Allocation Numba Total Time:  0.00024077892303466796
+Numba Total Time:  0.0013418197631835938
+Parallel Numba Total Time:  0.00022301673889160156

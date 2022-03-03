@@ -22,7 +22,6 @@ def main():
     # matrix2 - dense matrix
 
     adj, features, y_train, y_val, y_test, train_index, val_index, test_index = loadRedditFromNPZ("../../../../data/reddit/")
-
     sparse_array = adj+adj.T
     sparse_array = sparse_array[:, :number_of_nodes][:number_of_nodes,:]
 

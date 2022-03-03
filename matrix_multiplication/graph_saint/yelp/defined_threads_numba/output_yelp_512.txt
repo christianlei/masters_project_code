@@ -1,12 +1,9 @@
 ________manually allocated threads_________
 number_of_nodes:  512
 dataset:  yelp
-edges_per_thread 65.0
-sparse_mat.shape (512, 512)
-nodes_per_thread [(0, 64, 64, 65), (64, 129, 65, 65), (129, 194, 65, 65), (194, 257, 63, 65), (257, 319, 62, 65), (319, 382, 63, 65), (382, 447, 65, 65), (447, 512, 65, 65), (512, 512, 0, 0)]
-allocation_tuples:  [(0, 64, 64, 65), (64, 129, 65, 65), (129, 194, 65, 65), (194, 257, 63, 65), (257, 319, 62, 65), (319, 382, 63, 65), (382, 447, 65, 65), (447, 512, 65, 65), (512, 512, 0, 0)]
-sparse array shape:  (512, 512)
-dense array shape:  (512, 16)
-Manual Allocaition Numba Total Time:  1.9788742065429688e-05
-Numba Total Time:  2.86102294921875e-05
-Parallel Numba Total Time:  1.33514404296875e-05
+Equal Node Count Matrix Multiplication: 
+Manual Allocation Numba Total Time:  0.00047602653503417967
+Equal Edge Count Matrix Multiplication with Dense Array Transposed
+Manual Allocation Numba Total Time:  0.00024905204772949217
+Numba Total Time:  0.0014619827270507812
+Parallel Numba Total Time:  0.00028076171875
